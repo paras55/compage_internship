@@ -6,8 +6,9 @@ from flask import send_file
 
 app = Flask(__name__)
 name='gcode.txt'
+
 @app.route('/')
-def upload_file():
+def upload():
    return render_template('upload.html')
 	
 @app.route('/uploader', methods = ['GET', 'POST'])
