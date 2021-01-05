@@ -7,7 +7,7 @@ from flask import send_file
 app = Flask(__name__)
 name='gcode.txt'
 
-@app.route('/')
+@app.route('/',methods=['GET'])
 def upload():
    return render_template('login.html')
 	
