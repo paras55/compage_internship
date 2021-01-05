@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from werkzeug.utils import secure_filename
 from werkzeug.datastructures import  FileStorage
-from check import gcode
+from check import gcode1
 from flask import send_file
 
 app = Flask(__name__)
@@ -16,7 +16,7 @@ def upload1_file():
    if request.method == 'POST':
       f = request.files['file']
       f.save(secure_filename(f.filename))
-      code=gcode(f.filename)
+      code=gcode1(f.filename)
       file = open(name,"w")
       file.write(code )
       file.close()
