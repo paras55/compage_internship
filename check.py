@@ -1,13 +1,11 @@
-import os
-import time
-import datetime
+#XEND[i]= current value of x
+#YEND[I]= current value of y 
+# dictionary with integer keys
 import numpy as np
 tool_table = {350: 'T-1', 400: 'T-1',450: 'T-1',40: 'T1',30: 'T2',86: 'T3',86: 'T4'}
 
-
 def gcode1(name):
-        print('hello')
-        #OPENFILEPATH=name
+        OPENFILEPATH=name
         track=0
         
         SKIMHEIGHT  = "3"
@@ -49,7 +47,7 @@ def gcode1(name):
         
         #### Read DXF file ############################################
         
-        file = name
+        file = open(OPENFILEPATH,"r") 
         
         while True: #### Main DXF read loop ####
             TEXT = file.readline()
@@ -136,7 +134,7 @@ def gcode1(name):
                     if (TEXT == "50"): 
                         TEXT = file.readline() 
                         TEXT = TEXT.strip()
-                        print('HELLO')
+                        #print('HELLO')
                        # print(np.cos(np.array((TEXT)) * np.pi / 180))
                         #print(np.sin(np.array((0., 30., 45., 60., 90.)) * np.pi / 180.))
                         XEND1=float(np.cos(np.array(float(TEXT)) * np.pi / 180.))*float(RADIUS[i])+ float(XHOLE[i])
@@ -147,7 +145,7 @@ def gcode1(name):
                     if (TEXT == "51"): 
                         TEXT = file.readline() 
                         TEXT = TEXT.strip()
-                        print(TEXT)
+                        #print(TEXT)
                        # print(np.cos(np.array((TEXT)) * np.pi / 180))
                         #print(np.sin(np.array((0., 30., 45., 60., 90.)) * np.pi / 180.))
                         XEND[i]=float(np.cos(np.array(float(TEXT)) * np.pi / 180.))*float(RADIUS[i])+ float(XHOLE[i])
@@ -213,6 +211,6 @@ def gcode1(name):
                     
                 
         return gcode
-        
-
-#print ("G-Code written to file > ", SAVEFILE)
+               # break
+#gcode1('latest.DXF')
+#g=gcode1('latest.DXF')
