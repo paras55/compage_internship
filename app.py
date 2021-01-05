@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from werkzeug.utils import secure_filename
 from werkzeug.datastructures import  FileStorage
-from mainfile import gcode1
+from check import gcode1
 from flask import send_file
 
 app = Flask(__name__)
