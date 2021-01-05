@@ -9,7 +9,7 @@ name='gcode.txt'
 
 @app.route('/')
 def upload():
-   return render_template('upload.html')
+   return render_template('login.html')
 	
 @app.route('/uploader', methods = ['GET', 'POST'])
 def upload1_file():
@@ -21,6 +21,27 @@ def upload1_file():
       file.write(code )
       file.close()
       return send_file(name, as_attachment=True)
+  
+    
+@app.route('/signin')
+def signin():
+    return render_template('login.html')
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    username = request.form['username']
+    password = request.form['password']
+    print(username)
+    print(password)
+    if username == 'client1' and password == 'compage':
+        return render_template('upload.html')
+    
+    elif username == 'client2' and password == 'compage':
+       return render_template('upload.html')
+
+    else :
+        return render_template('login.html', warning='Please enter correct username and password')
       #return code
 		
 if __name__ == '__main__':
