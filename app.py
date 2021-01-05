@@ -15,6 +15,7 @@ def upload():
 def upload1_file():
    if request.method == 'POST':
       f = request.files['file']
+      print(f.filename)
       f.save(secure_filename(f.filename))
       code=gcode1(f.filename)
       file = open(name,"w")
