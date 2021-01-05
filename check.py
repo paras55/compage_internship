@@ -5,7 +5,7 @@ import numpy as np
 tool_table = {350: 'T-1', 400: 'T-1',450: 'T-1',40: 'T1',30: 'T2',86: 'T3',86: 'T4'}
 
 
-def gcode(name):
+def gcode1(name):
         OPENFILEPATH=name
         track=0
         
@@ -182,7 +182,7 @@ def gcode(name):
                             #gcode=gcode+'G00 X'+str(XEND[i])+' Y'+str(YEND[i])+'\n'
                            #if XEND[i-1]==XHOLE[i]: #horizontal line and circle  
                             if XEND1>XEND[i] and YEND1>YEND[i]: #clockwise circle downwards right corner
-                                   gcode=gcode+'G02 X'+str(XEND[i])+' Y'+str(YEND[i]) + ' R'+str(RADIUS[i])+'\n'
+                                   gcode=gcode+'G03 X'+str(XEND[i])+' Y'+str(YEND[i]) + ' R'+str(RADIUS[i])+'\n'
                                
                             elif XEND1>XEND[i] and YEND1<YEND[i]: #anticlockwise circle upwards
                                     gcode=gcode+'G03 X'+str(XEND[i])+' Y'+str(YEND[i]) + ' R'+str(RADIUS[i])+'\n'
@@ -192,7 +192,7 @@ def gcode(name):
                                    gcode=gcode+'G03 X'+str(XEND[i])+' Y'+str(YEND[i]) + ' R'+str(RADIUS[i])+'\n'
                                
                             elif XEND1<XEND[i] and YEND1<YEND[i]: #centre of circle on right
-                                   gcode=gcode+'G02 X'+str(XEND[i])+' Y'+str(YEND[i]) + ' R'+str(RADIUS[i])+'\n'
+                                   gcode=gcode+'G03 X'+str(XEND[i])+' Y'+str(YEND[i]) + ' R'+str(RADIUS[i])+'\n'
                                    
                             check_arc=None
                             i=i+1
@@ -211,7 +211,7 @@ def gcode(name):
                         break
                     
                 
-            return gcode
+        return gcode
         
 
 #print ("G-Code written to file > ", SAVEFILE)
