@@ -22,10 +22,6 @@ def upload1_file():
       file.close()
       return send_file(name, as_attachment=True)
   
-    
-@app.route('/signin')
-def signin():
-    return render_template('login.html')
 
 
 @app.route('/login', methods=['GET', 'POST'])
