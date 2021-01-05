@@ -7,7 +7,7 @@ from flask import send_file
 app = Flask(__name__)
 name='gcode.txt'
 
-@app.route('/',methods=['GET'])
+@app.route('/')
 def upload():
    return render_template('login.html')
 	
@@ -22,6 +22,10 @@ def upload1_file():
       file.close()
       return send_file(name, as_attachment=True)
   
+    
+@app.route('/signin')
+def signin():
+    return render_template('login.html')
 
 
 @app.route('/login', methods=['GET', 'POST'])
