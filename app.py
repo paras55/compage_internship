@@ -9,7 +9,7 @@ name='gcode.txt'
 
 @app.route('/')
 def upload():
-   return render_template('login.html')
+   return render_template('upload.html')
 	
 @app.route('/uploader', methods = ['GET', 'POST'])
 def upload1_file():
