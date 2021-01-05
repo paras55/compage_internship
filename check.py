@@ -6,7 +6,8 @@ tool_table = {350: 'T-1', 400: 'T-1',450: 'T-1',40: 'T1',30: 'T2',86: 'T3',86: '
 
 
 def gcode1(name):
-        OPENFILEPATH=name
+        print('hello')
+        #OPENFILEPATH=name
         track=0
         
         SKIMHEIGHT  = "3"
@@ -48,7 +49,7 @@ def gcode1(name):
         
         #### Read DXF file ############################################
         
-        file = open(OPENFILEPATH,"r") 
+        file = name
         
         while True: #### Main DXF read loop ####
             TEXT = file.readline()
