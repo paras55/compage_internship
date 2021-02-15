@@ -35,7 +35,7 @@ def final(p,f,sh,ss,rg5,d,w):
         #headers                  #newgcode
         pappu=pappu+'g54'+'\n'+'T1'+'\n'
         pappu=pappu+'G0'+' Z'+str(safe_height)+'\n'+'\n'+'\n'+'\n'+'\n'+'\n'
-        pappu=pappu+'G0 X0.000 Y0.000 A90C0'+'\n+'<br>'+'<br>'+'<br>'+'<br>'
+        pappu=pappu+'G0 X0.000 Y0.000 A90C0'+'\n'+'<br>'+'<br>'+'<br>'+'<br>'
         pappu=pappu+'S'+str(spindle_speed)+'M3'+'\n'
         pappu=pappu+'G4 K'+str(spindle_waiting_time)+'\n'
         pappu=pappu+'g5 r'+str(radius_for_g5)+'\n'
