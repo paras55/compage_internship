@@ -33,8 +33,8 @@ def final(p,f,sh,ss,rg5,d,w):
         
         
         #headers                  #newgcode
-        pappu=pappu+'g54'+'\n'+'T1'+'\n'
-        pappu=pappu+'G0'+' Z'+str(safe_height)+'\n'+'\n'+'\n'+'\n'+'\n'+'\n'
+        pappu=pappu+'g54'+'\n'+'T1'+'\r\n'
+        pappu=pappu+'G0'+' Z'+str(safe_height)+'\r\n'+'\r\n'+'\r\n'+'\r\n'+'\r\n'+'\r\n'
         pappu=pappu+'G0 X0.000 Y0.000 A90C0'+'\n'+'<br>'+'<br>'+'<br>'+'<br>'
         pappu=pappu+'S'+str(spindle_speed)+'M3'+'\n'
         pappu=pappu+'G4 K'+str(spindle_waiting_time)+'\n'
