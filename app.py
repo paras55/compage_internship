@@ -33,17 +33,17 @@ def final(p,f,sh,ss,rg5,d,w):
         
         
         #headers                  #newgcode
-        pappu=pappu+'g54'+'\n'+'T1'+'\r\n'
-        pappu=pappu+'G0'+' Z'+str(safe_height)+'\r\n'+'\r\n'+'\r\n'+'\r\n'+'\r\n'+'\r\n'
-        pappu=pappu+'G0 X0.000 Y0.000 A90C0'+'\n'+'<br>'+'<br>'+'<br>'+'<br>'
-        pappu=pappu+'S'+str(spindle_speed)+'M3'+'\n'
-        pappu=pappu+'G4 K'+str(spindle_waiting_time)+'\n'
-        pappu=pappu+'g5 r'+str(radius_for_g5)+'\n'
-        pappu=pappu+'p1='+str(depth_of_z)+'\n'
-        pappu=pappu+'p2=0 \n'
-        pappu=pappu+'g40'+'\n'
-        pappu=pappu+'n100'+'\n'
-        pappu=pappu+'G1 Z '+str(p2)+' F'+str(feed_rate)+'\n'
+        pappu=pappu+'g54'+'\r\n'+'T1'+'\r\n'
+        pappu=pappu+'G0'+' Z'+str(safe_height)+'\r\n'
+        pappu=pappu+'G0 X0.000 Y0.000 A90C0'+'\r\n'
+        pappu=pappu+'S'+str(spindle_speed)+'M3'+'\r\n'
+        pappu=pappu+'G4 K'+str(spindle_waiting_time)+'\r\n'
+        pappu=pappu+'g5 r'+str(radius_for_g5)+'\r\n'
+        pappu=pappu+'p1='+str(depth_of_z)+'\r\n'
+        pappu=pappu+'p2=0 \r\n'
+        pappu=pappu+'g40'+'\r\n'
+        pappu=pappu+'n100'+'\r\n'
+        pappu=pappu+'G1 Z '+str(p2)+' F'+str(feed_rate)+'\r\n'
         
         
         dic=p[1]
@@ -53,12 +53,12 @@ def final(p,f,sh,ss,rg5,d,w):
         
         cordinates=[res1[0],res1[1]]
         
-        pappu=pappu+'G0'+' X'+res1[0]+' Y'+res1[1]+'\n'
+        pappu=pappu+'G0'+' X'+res1[0]+' Y'+res1[1]+'\r\n'
         valuedic=dic[res]
         valuewhat=res1[2].replace("'", "")    #circle/line/arc
         if valuewhat=='line':
             print('hi')
-            pappu=pappu+'G01'+' X'+str(valuedic[0][0])+' Y'+str(valuedic[0][1])+'\n'
+            pappu=pappu+'G01'+' X'+str(valuedic[0][0])+' Y'+str(valuedic[0][1])+'\r\n'
             
         del dic[res]
         last_cordinate_track=valuedic[0]
@@ -88,7 +88,7 @@ def final(p,f,sh,ss,rg5,d,w):
                         #print('i am inside line')
                         print(h,' I am in line of keys')
                         valuedic1=dic[i]
-                        pappu=pappu+'G01'+' X'+str(valuedic1[0][0])+' Y'+str(valuedic1[0][1])+'\n'
+                        pappu=pappu+'G01'+' X'+str(valuedic1[0][0])+' Y'+str(valuedic1[0][1])+'\r\n'
                         last_cordinate_track=valuedic1[0]
                         print(last_cordinate_track)
                         del dic[i]
@@ -101,7 +101,7 @@ def final(p,f,sh,ss,rg5,d,w):
                         sangle=res_new[4] #starting angle of arc
                         eangle=res_new[5] #ending angle of arc
                         if sangle<eangle or sangle>eangle :
-                            pappu=pappu+'G03'+' X'+str(valuedic1[0][0])+' Y'+str(valuedic[0][1])+' R'+str( radius1[2:len(radius1)-1])+'\n'
+                            pappu=pappu+'G03'+' X'+str(valuedic1[0][0])+' Y'+str(valuedic[0][1])+' R'+str( radius1[2:len(radius1)-1])+'\r\n'
                             last_cordinate_track=valuedic1[0]
                             del dic[i]
                             break
@@ -136,7 +136,7 @@ def final(p,f,sh,ss,rg5,d,w):
                             valuewhat2=res_new2[2].replace("'", "")    #circle/line/arc
                             if valuewhat2=='line':
                                 print('I am in line of values')
-                                pappu=pappu+'G01'+' X'+str(res_new2[0])+' Y'+str(res_new2[1])+'\n'
+                                pappu=pappu+'G01'+' X'+str(res_new2[0])+' Y'+str(res_new2[1])+'\r\n'
                                 last_cordinate_track=[float(res_new2[0]),float(res_new2[1])]
                                 print(last_cordinate_track)
                                 del dic[k]
@@ -148,7 +148,7 @@ def final(p,f,sh,ss,rg5,d,w):
                                 sangle=res_new2[4] #starting angle of arc
                                 eangle=res_new2[5] #ending angle of arc
                                 if sangle<eangle or sangle>eangle :
-                                    pappu=pappu+'G02'+' X'+str(res_new2[0])+' Y'+str(res_new2[1])+' R'+str( radius2[2:len(radius2)-1])+'\n'
+                                    pappu=pappu+'G02'+' X'+str(res_new2[0])+' Y'+str(res_new2[1])+' R'+str( radius2[2:len(radius2)-1])+'\r\n'
                                     last_cordinate_track=[float(res_new2[0]),float(res_new2[1])]
                                     print(last_cordinate_track)
                                     del dic[k]
@@ -163,18 +163,18 @@ def final(p,f,sh,ss,rg5,d,w):
         for r in dic:
                 #res = list(dic.keys())[0]       #first element (key) in form of string to get value
                 u = r.strip('][').split(', ') 
-                pappu=pappu+'G00 '+'X'+str(u[0])+' Y'+str(u[1])+'\n'
+                pappu=pappu+'G00 '+'X'+str(u[0])+' Y'+str(u[1])+'\r\n'
                 key=dic[r]
                 radiu=u[3]
-                pappu=pappu+'G02 '+'X'+str(key[0][0])+' Y'+str(key[0][1])+' R'+str( radiu[2:len(radiu)-1])+'\n'
-                pappu=pappu+'G02 '+'X'+str(u[0])+' Y'+str(u[1])+' R'+str( radiu[2:len(radiu)-1])+'\n'
+                pappu=pappu+'G02 '+'X'+str(key[0][0])+' Y'+str(key[0][1])+' R'+str( radiu[2:len(radiu)-1])+'\r\n'
+                pappu=pappu+'G02 '+'X'+str(u[0])+' Y'+str(u[1])+' R'+str( radiu[2:len(radiu)-1])+'\r\n'
                     
                     
-        pappu=pappu+'p2=p2-2'+'\n'
-        pappu=pappu+'IF(p2>p1) 100'+'\n'
-        pappu=pappu+'G0Z15.000'+'\n'
-        pappu=pappu+'G0Y0.000'+' \n'
-        pappu=pappu+'G0X0'+' \n'
+        pappu=pappu+'p2=p2-2'+'\r\n'
+        pappu=pappu+'IF(p2>p1) 100'+'\r\n'
+        pappu=pappu+'G0Z15.000'+'\r\n'
+        pappu=pappu+'G0Y0.000'+'\r \n'
+        pappu=pappu+'G0X0'+' \r\n'
         pappu=pappu+'M30'
         return pappu
     
