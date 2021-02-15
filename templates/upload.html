@@ -37,6 +37,7 @@ a {
 </head>
 <body style="background-color:#E0FFFF;">
 
+
 <div>
   <h1 style="border:2px solid DodgerBlue;">Compage Automation Systems</h1>
 </div>
@@ -44,6 +45,13 @@ a {
     <p>Upload your DFX files here:</p>
     <form action ="/uploader"  method = "POST" 
          enctype = "multipart/form-data">
+         <input name="feed" placeholder="Feed Rate" >
+         <input name="safe" placeholder="Safe Height" >
+         <input name="s_speed" placeholder="Spindle Speed" >
+         <input name="radiusg5" placeholder="Radius for G5" >
+         <input name="depth" placeholder="Depth of Z" >
+         <input name="wait" placeholder="Spindle Waiting Time" >
+         <br>
       <input class="w3-button w3-blue w3-round-large" type="file"  name="file">
       <input class="w3-btn w3-blue w3-round" type="submit">
     </form>
